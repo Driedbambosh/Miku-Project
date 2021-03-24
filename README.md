@@ -1,3 +1,11 @@
+# 一个关于Miku的粉丝网站
+
+基于Vue全家桶和elementui的前端项目，后端采用springboot框架进行开发
+
+功能还没想好=。=
+
+
+
 # miku-project
 
 ## Project setup
