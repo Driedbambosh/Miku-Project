@@ -4,6 +4,48 @@
     <div class="backImg"></div>
     <!-- 登录栏 -->
     <div class="login-box">
+      <div class="mikuF">
+        <img class="xiangsu"
+             style="top: 25px;left: 13px;z-index: 2;transform:rotate(45deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="left: 30px;transform:rotate(180deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="left: 75px;transform:rotate(-45deg);top: 40px"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="top: 100px;left: -30px;transform:rotate(32deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="height: 80px;left: 280px;top: 150px;z-index: 1;transform:rotate(90deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="top: 700px;left: -80px;z-index: 2;transform:rotate(-50deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="left: -30px;top: 350px;transform:rotate(-25deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="top: 600px;left: -170px;transform:rotate(-25deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="top: 600px;left: 80px;transform:rotate(45deg)"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+        <img class="xiangsu"
+             style="top: 350px;left: 400px"
+             src="../assets/miku-xiangsu.png"
+             alt="">
+      </div>
       <div class="login-input">
         <span class="login-title large-style"
               style="margin-bottom: 67px">登录</span>
@@ -52,6 +94,18 @@ export default {
   font-weight: 700;
 }
 /* 上面为通用样式 */
+.mikuF {
+  width: 100%;
+  height: 100%;
+  max-width: 550px;
+  min-width: 550px;
+  position: absolute;
+}
+.xiangsu {
+  width: 150px;
+  position: relative;
+  z-index: 1;
+}
 .login-father {
   width: 100%;
   height: 100%;
@@ -85,6 +139,7 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  z-index: 1;
 }
 .login-title {
   display: block;
