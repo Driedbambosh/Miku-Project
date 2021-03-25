@@ -4,6 +4,7 @@
     <div class="backImg"></div>
     <!-- 登录栏 -->
     <div class="login-box">
+      <!-- 像素图 -->
       <div class="mikuF">
         <img class="xiangsu"
              style="top: 25px;left: 13px;z-index: 2;transform:rotate(45deg)"
@@ -64,7 +65,8 @@
           </el-form-item>
           <el-form-item class="login-message">
             <div class="login-button-box">
-              <el-button class="button">登录</el-button>
+              <el-button class="button"
+                         @click="login">登录</el-button>
               <el-button class="button">注册</el-button>
             </div>
           </el-form-item>
@@ -83,11 +85,20 @@ export default {
       UserId: '',
       password: ''
     }
+  },
+  methods: {
+    login () {
+      this.$message({
+        message: '登录成功',
+        type: 'success'
+      })
+      this.$router.push('./home')
+    }
   }
 }
 </script>
 
-<style scoped>
+<style  scoped>
 .large-style {
   color: #39c5bb;
   font-size: 24px;
