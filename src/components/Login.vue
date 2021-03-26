@@ -8,39 +8,39 @@
       <div class="mikuF">
         <img class="xiangsu"
              style="top: 25px;left: 13px;z-index: 2;transform:rotate(45deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="left: 30px;transform:rotate(180deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="left: 75px;transform:rotate(-45deg);top: 40px"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="top: 100px;left: -30px;transform:rotate(32deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="height: 80px;left: 280px;top: 150px;z-index: 1;transform:rotate(90deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="top: 700px;left: -80px;z-index: 2;transform:rotate(-50deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="left: -30px;top: 350px;transform:rotate(-25deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="top: 600px;left: -170px;transform:rotate(-25deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="top: 600px;left: 80px;transform:rotate(45deg)"
-             src="../assets/miku-xiangsu.png"
+             src="../assets/miku-xiangsu.webp"
              alt="">
         <img class="xiangsu"
              style="top: 350px;left: 400px"
@@ -127,7 +127,7 @@ export default {
 }
 .backImg {
   height: 100%;
-  background-image: url("../assets/Login-Bgi.jpeg");
+  background-image: url("../assets/Login-Bgi.webp");
   background-repeat: no-repeat;
   background-size: cover;
   flex-grow: 5;

@@ -1,8 +1,8 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
 
 const home = () => import('../views/home.vue')
 
