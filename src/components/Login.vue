@@ -5,7 +5,7 @@
     <!-- 登录栏 -->
     <div class="login-box">
       <!-- 像素图 -->
-      <div class="mikuF">
+      <!-- <div class="mikuF">
         <img class="xiangsu"
              style="top: 25px;left: 13px;z-index: 2;transform:rotate(45deg)"
              src="../assets/miku-xiangsu.webp"
@@ -46,7 +46,7 @@
              style="top: 350px;left: 400px"
              src="../assets/miku-xiangsu.png"
              alt="">
-      </div>
+      </div> -->
       <div class="login-input">
         <span class="login-title large-style"
               style="margin-bottom: 67px">登录</span>
@@ -110,6 +110,8 @@ export default {
   height: 100%;
   max-width: 550px;
   min-width: 550px;
+  max-height: 969px;
+  min-height: 969px;
   position: absolute;
 }
 .xiangsu {
