@@ -67,7 +67,7 @@
             <div class="login-button-box">
               <el-button class="button"
                          @click="login">登录</el-button>
-              <el-button class="button">注册</el-button>
+              <el-button class="button" @click="dialogTableVisible = true">注册</el-button>
             </div>
           </el-form-item>
           <a href=""
@@ -75,6 +75,26 @@
         </el-form>
       </div>
     </div>
+    <!-- 注册弹框 -->
+    <el-dialog :visible.sync="dialogTableVisible" width="600px" :showClose='false' class="insert_box">
+      <div slot='title' class="insert">注册</div>
+      <div>
+        <el-form label-width="80px" style="text-align: center;display: flex;">
+          <el-form-item class="login-bottom" style="width: 70%" label="用户名">
+            <el-input v-model="insert.username"></el-input>
+          </el-form-item>
+          <el-form-item class="login-bottom" style="width: 70%" label="密码">
+            <el-input v-model="insert.password"></el-input>
+          </el-form-item>
+          <el-form-item class="login-bottom" style="width: 70%" label="手机号">
+            <el-input v-model="insert.phoneNumber"></el-input>
+          </el-form-item>
+        </el-form>
+      </div>
+      <div slot="footer" class="dialog-footer" style="text-align: center">
+        <el-button class="button" @click="insertIn()" style="border: none;background-color: #ffffff; color: #39c5bb">注册</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -83,7 +103,15 @@ export default {
   data () {
     return {
       UserId: '',
-      password: ''
+      password: '',
+      // 注册弹框显示
+      dialogTableVisible: false,
+      // 注册信息
+      insert: {
+        password: '',
+        phoneNumber: '',
+        username: ''
+      }
     }
   },
   methods: {
@@ -93,6 +121,9 @@ export default {
         type: 'success'
       })
       this.$router.push('./home')
+    },
+    insertIn () {
+      this.dialogTableVisible = false
     }
   }
 }
@@ -184,5 +215,15 @@ export default {
   color: white;
   font-weight: 600;
   font-size: 17px;
+}
+.insert_box >>> .el-dialog {
+  background-color: #39c5bb;
+}
+.insert {
+  width: 100%;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 500;
 }
 </style>
