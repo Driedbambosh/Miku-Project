@@ -11,6 +11,11 @@ export function get (url, params) {
   })
 }
 
+export function post (url, data) {
+  return instance.post(url, data)
+}
+
+// 登录
 export function login (url, phone, pas) {
   return instance.post(url, null, {
     params: {
@@ -20,6 +25,13 @@ export function login (url, phone, pas) {
   })
 }
 
-export function post (url, data) {
-  return instance.post(url, data)
+// 注册
+export function insert (url, phone, pas, username) {
+  return instance.post(url, null, {
+    params: {
+      password: pas,
+      phoneNumber: phone,
+      username: username
+    }
+  })
 }

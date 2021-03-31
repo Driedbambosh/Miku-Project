@@ -76,7 +76,7 @@
       </div>
     </div>
     <!-- 注册弹框 -->
-    <el-dialog :visible.sync="dialogTableVisible" width="570px" :showClose='false' class="insert_box">
+    <el-dialog @closed="close" :visible.sync="dialogTableVisible" width="570px" :showClose='false' class="insert_box">
       <div slot='title' class="insert">注册</div>
       <div style="width: 100%">
         <el-form label-width="80px" style="text-align: center;display: flex;flex-direction:column;align-items: center">
@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import { login } from '../utils/request'
+import { login, insert } from '../utils/request'
 export default {
   data () {
     return {
@@ -118,6 +118,7 @@ export default {
     }
   },
   methods: {
+    // 登录
     login () {
       login('anon/login', this.loginMes.phoneNum, this.loginMes.password).then(res => {
         if (res.data.code === 0) {
@@ -139,8 +140,33 @@ export default {
         })
       })
     },
+    // 注册
     insertIn () {
-      this.dialogTableVisible = false
+      insert('anon/insert', this.insert.phoneNum, this.insert.password, this.insert.username).then(res => {
+        if (res.data.code === 0) {
+          this.$message({
+            message: '注册成功',
+            type: 'success'
+          })
+          this.dialogTableVisible = false
+        } else {
+          this.$message({
+            message: res.data.msg,
+            type: 'error'
+          })
+        }
+      }).catch(res => {
+        this.$message({
+          message: res.data.msg,
+          type: 'error'
+        })
+      })
+    },
+    // 注册窗口关闭事件
+    close () {
+      this.insert.password = ''
+      this.insert.phoneNum = ''
+      this.insert.username = ''
     }
   }
 }
