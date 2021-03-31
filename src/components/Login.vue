@@ -104,8 +104,8 @@ export default {
   data () {
     return {
       loginMes: {
-        phoneNum: '',
-        password: ''
+        phoneNum: '18645227268',
+        password: '171468186'
       },
       // 注册弹框显示
       dialogTableVisible: false,
@@ -135,7 +135,7 @@ export default {
         }
       }).catch(res => {
         this.$message({
-          message: res.data.msg,
+          message: res,
           type: 'error'
         })
       })
