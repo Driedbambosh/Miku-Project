@@ -6,6 +6,14 @@
 
 
 
+
+
+
+
+### 踩坑：
+
+1. 登录post请求用axios的params数据发送
+
 # miku-project
 
 ## Project setup

@@ -54,12 +54,12 @@
           <!-- 表单 -->
           <el-form-item>
             <el-input class="login-bottom"
-                      placeholder="账号"
-                      v-model="UserId">
+                      placeholder="手机号"
+                      v-model="loginMes.phoneNum">
             </el-input>
             <el-input class="login-bottom"
                       placeholder="密码"
-                      v-model="password"
+                      v-model="loginMes.password"
                       type="password">
             </el-input>
           </el-form-item>
@@ -76,10 +76,10 @@
       </div>
     </div>
     <!-- 注册弹框 -->
-    <el-dialog :visible.sync="dialogTableVisible" width="600px" :showClose='false' class="insert_box">
+    <el-dialog :visible.sync="dialogTableVisible" width="570px" :showClose='false' class="insert_box">
       <div slot='title' class="insert">注册</div>
-      <div>
-        <el-form label-width="80px" style="text-align: center;display: flex;">
+      <div style="width: 100%">
+        <el-form label-width="80px" style="text-align: center;display: flex;flex-direction:column;align-items: center">
           <el-form-item class="login-bottom" style="width: 70%" label="用户名">
             <el-input v-model="insert.username"></el-input>
           </el-form-item>
@@ -87,7 +87,7 @@
             <el-input v-model="insert.password"></el-input>
           </el-form-item>
           <el-form-item class="login-bottom" style="width: 70%" label="手机号">
-            <el-input v-model="insert.phoneNumber"></el-input>
+            <el-input v-model.number="insert.phoneNum"></el-input>
           </el-form-item>
         </el-form>
       </div>
@@ -99,28 +99,45 @@
 </template>
 
 <script>
+import { login } from '../utils/request'
 export default {
   data () {
     return {
-      UserId: '',
-      password: '',
+      loginMes: {
+        phoneNum: '',
+        password: ''
+      },
       // 注册弹框显示
       dialogTableVisible: false,
       // 注册信息
       insert: {
         password: '',
-        phoneNumber: '',
+        phoneNum: '',
         username: ''
       }
     }
   },
   methods: {
     login () {
-      this.$message({
-        message: '登录成功',
-        type: 'success'
+      login('anon/login', this.loginMes.phoneNum, this.loginMes.password).then(res => {
+        if (res.data.code === 0) {
+          this.$message({
+            message: res.data.msg,
+            type: 'success'
+          })
+          this.$router.push('./home')
+        } else {
+          this.$message({
+            message: res.data.msg,
+            type: 'error'
+          })
+        }
+      }).catch(res => {
+        this.$message({
+          message: res.data.msg,
+          type: 'error'
+        })
       })
-      this.$router.push('./home')
     },
     insertIn () {
       this.dialogTableVisible = false
@@ -219,11 +236,21 @@ export default {
 .insert_box >>> .el-dialog {
   background-color: #39c5bb;
 }
+.login-bottom >>> .el-form-item__label {
+  color:#ffffff !important;
+  position: relative;
+  right: 40px;
+  font-weight: 700;
+}
+.login-bottom >>> .el-form-item__content {
+  position: relative;
+  right: 30px
+}
 .insert {
   width: 100%;
   font-size: 40px;
   color: #ffffff;
   text-align: center;
-  font-weight: 500;
+  font-weight: 700;
 }
 </style>
