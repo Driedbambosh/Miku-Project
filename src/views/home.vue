@@ -19,7 +19,10 @@
         </el-submenu>
         <el-menu-item index="Ly">留言板</el-menu-item>
       </el-menu>
-      <div></div>
+      <div class="userHead" style="display: flex; align-items: center">
+          <el-avatar size="medium" :src="circleUrl"></el-avatar>
+          <span class="username" style="font-size: 11px; margin: 0px 40px 0 10px">{{userName}}</span>
+      </div>
     </el-header>
     <el-main class="elMain">
       <router-view></router-view>
@@ -32,8 +35,15 @@
 export default {
   data () {
     return {
+      circleUrl: localStorage.getItem('headPortrait'),
+      userName: localStorage.getItem('userName'),
       activeIndex: 'index'
     }
+  },
+  created () {
+  },
+  methods: {
+
   }
 }
 </script>

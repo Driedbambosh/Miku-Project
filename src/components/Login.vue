@@ -126,6 +126,9 @@ export default {
             message: res.data.msg,
             type: 'success'
           })
+          localStorage.setItem('token', res.data.data.token)
+          localStorage.setItem('userName', res.data.data.username)
+          localStorage.setItem('headPortrait', res.data.data.headPortrait)
           this.$router.push('./home')
         } else {
           this.$message({
