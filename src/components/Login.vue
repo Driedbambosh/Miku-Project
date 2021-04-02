@@ -117,6 +117,9 @@ export default {
       }
     }
   },
+  beforeCreate () {
+    document.querySelector('body').setAttribute('style', 'height: 100%;')
+  },
   methods: {
     // 登录
     login () {
@@ -129,6 +132,7 @@ export default {
           localStorage.setItem('token', res.data.data.token)
           localStorage.setItem('userName', res.data.data.username)
           localStorage.setItem('headPortrait', res.data.data.headPortrait)
+          localStorage.setItem('activeIndex', 'index')
           this.$router.push('./home')
         } else {
           this.$message({

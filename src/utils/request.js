@@ -57,3 +57,8 @@ export function article (url, pageNum, pageSize) {
     }
   })
 }
+
+// 获取留言
+export function leaveMsg () {
+  return instance.get('leaveMsg/all', '')
+}
