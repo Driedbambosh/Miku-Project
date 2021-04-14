@@ -21,12 +21,12 @@
       </el-menu>
       <div class="userHead" style="display: flex; align-items: center">
           <el-avatar fit='fill' size="medium" :src="circleUrl"></el-avatar>
-          <el-dropdown>
+          <el-dropdown @command="userSetting">
             <span class="username" style="color: #ffffff;font-size: 11px; margin: 0px 40px 0 10px">{{userName}}</span>
             <el-dropdown-menu title="dropdown">
               <el-dropdown-item>编辑用户设置</el-dropdown-item>
               <el-dropdown-item>发布文章</el-dropdown-item>
-              <el-dropdown-item>退出登录</el-dropdown-item>
+              <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
       </div>
@@ -34,9 +34,7 @@
     <el-main class="elMain">
       <router-view></router-view>
     </el-main>
-    <div class="footer">
-
-    </div>
+    <div class="footer"></div>
   </el-container>
 </template>
 
@@ -52,6 +50,7 @@ export default {
     }
   },
   beforeCreate () {
+    // dom渲染之前改变body高度
     document.querySelector('body').setAttribute('style', 'height: auto;')
   },
   created () {
@@ -68,6 +67,20 @@ export default {
     },
     handleSelect (key) {
       localStorage.setItem('activeIndex', key)
+    },
+    // 退出登录
+    userSetting (item) {
+      if (item === 'loginOut') {
+        console.log('asd')
+        localStorage.clear()
+        this.$router.push('./login')
+        this.$message({
+          message: '退出成功',
+          type: 'success'
+        })
+      } else {
+
+      }
     }
   }
 }
@@ -92,6 +105,6 @@ export default {
   width: 100%;
   height: 100px;
   background-color: #39c5bb;
-  opacity: 0.2;
+  /* opacity: 0.2; */
 }
 </style>

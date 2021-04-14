@@ -29,4 +29,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+button {
+  cursor: pointer;
+}
+:focus {outline:none;} /*for IE*/
+::-moz-focus-inner {border-color: transparent;} /*for mozilla*/
 </style>

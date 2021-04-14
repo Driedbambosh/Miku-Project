@@ -62,3 +62,27 @@ export function article (url, pageNum, pageSize) {
 export function leaveMsg () {
   return instance.get('leaveMsg/all', '')
 }
+// 回复留言
+export function insertInput (leaveMsg, pid, replyUserId) {
+  return instance.post('leaveMsg/insert', null, {
+    params: {
+      leaveMsg: leaveMsg,
+      pid: pid,
+      replyUserId: replyUserId
+    }
+  })
+}
+
+// 获取标签
+export function getTags () {
+  return instance.get('tags/all', '')
+}
+
+// 删除标签
+export function delTag (id) {
+  return instance.get('tags/delete', {
+    params: {
+      id: id
+    }
+  })
+}

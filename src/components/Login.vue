@@ -104,8 +104,8 @@ export default {
   data () {
     return {
       loginMes: {
-        phoneNum: '18645227268',
-        password: '171468186'
+        phoneNum: '',
+        password: ''
       },
       // 注册弹框显示
       dialogTableVisible: false,
